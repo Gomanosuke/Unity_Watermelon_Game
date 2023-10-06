@@ -87,7 +87,7 @@ public class master : MonoBehaviour
 
     void Next_view(int next_scale)
     {
-        float scale_float = next_scale * 0.2f + 0.25f;
+        float scale_float = next_scale * 0.2f + 0.22f;
         next_fruit_obj.transform.localScale = new Vector2(scale_float, scale_float);
         next_fruit_sprite.sprite = sprite_list[next_scale - 1];
     }

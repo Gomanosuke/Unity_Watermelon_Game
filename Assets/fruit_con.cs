@@ -62,7 +62,7 @@ public class fruit_con : MonoBehaviour
 
     void Scale_Change(int next_scale)
     {
-        float scale_float = next_scale * 0.2f + 0.25f;
+        float scale_float = next_scale * 0.2f + 0.22f;
         transform.localScale = new Vector2(scale_float,scale_float);
         spriterenderer.sprite = sprite_list[next_scale - 1];
     }
