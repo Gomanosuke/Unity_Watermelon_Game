@@ -13,6 +13,7 @@ public class master : MonoBehaviour
     
     int number_of_fruit = 0;
     int next_fruit;
+    public Sprite[] sprite_list = new Sprite[12];
 
     bool can_con = true;//ŽŸ‚Ìfruit‚Ü‚¿
 
@@ -31,6 +32,7 @@ public class master : MonoBehaviour
         can_con = false;
         Invoke(nameof(Lottery), 0.5f);
         next_fruit = Random.Range(1, 5);
+        Next_view(next_fruit);
         number_of_fruit++;
     }
 
@@ -64,9 +66,15 @@ public class master : MonoBehaviour
     {
         if(gameover == false)
         {
-            //can_con = false;
+            can_con = false;
             gameover_ui.SetActive(true);
             last_score.text = "score : " + score_int.ToString("0000");
+
+            GameObject[] fruit_obj = GameObject.FindGameObjectsWithTag("fruit");
+
+            for (int i = 0; i < fruit_obj.Length; ++i)
+                fruit_obj[i].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+
         }
         gameover = true;
     }
@@ -81,5 +89,6 @@ public class master : MonoBehaviour
     {
         float scale_float = next_scale * 0.25f + 0.25f;
         next_fruit_obj.transform.localScale = new Vector2(scale_float, scale_float);
+        next_fruit_sprite.sprite = sprite_list[next_scale - 1];
     }
 }

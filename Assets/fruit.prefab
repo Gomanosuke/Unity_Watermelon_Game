@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2888523607429954134}
   m_Layer: 0
   m_Name: fruit
-  m_TagString: Untagged
+  m_TagString: fruit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 74fb0b33df7cb6c4b8c8308b103d7acf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,6 +99,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2c669fb64e054346a1b99ecf3bae2f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriterenderer: {fileID: 2888523607429954133}
+  sprite_list:
+  - {fileID: 21300000, guid: 982c8ba02e1a16a49ad0d72e5f25fdff, type: 3}
+  - {fileID: 21300000, guid: 4a5b8b4b757b0dd4eb3e7232b36740d9, type: 3}
+  - {fileID: 21300000, guid: ce58955663310e742aadea1eb3dfd8ff, type: 3}
+  - {fileID: 21300000, guid: 74fb0b33df7cb6c4b8c8308b103d7acf, type: 3}
+  - {fileID: 21300000, guid: 6b41845e910bf354cabcdc1156cc4c8e, type: 3}
+  - {fileID: 21300000, guid: 9d885952efd480242935d22b533a9879, type: 3}
+  - {fileID: 21300000, guid: 2d29a2c1b12cdb44d8b8e816011b7bba, type: 3}
+  - {fileID: 21300000, guid: 958f3eb37851082459bd7ca631377f74, type: 3}
+  - {fileID: 21300000, guid: e9cb49b6b395ccf49a4d379aa96eb772, type: 3}
+  - {fileID: 21300000, guid: 25ee8dd935586194ea94d510fc9a74aa, type: 3}
+  - {fileID: 21300000, guid: a8a4861ebf6f75944899b30063d48581, type: 3}
+  - {fileID: 21300000, guid: 5c1f0ab859d3be74a86017da33f39fd5, type: 3}
 --- !u!58 &2888523607429954135
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -130,7 +144,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.2
-  m_GravityScale: 1
+  m_GravityScale: 1.5
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 1
