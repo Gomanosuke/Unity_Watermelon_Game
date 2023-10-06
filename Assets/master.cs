@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using unityroom.Api;
 public class master : MonoBehaviour
 {
 
@@ -50,6 +51,8 @@ public class master : MonoBehaviour
         {
             SceneManager.LoadScene(0);
         }
+
+        transform.position = new Vector2(Mathf.Clamp(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, -3f, 3f), 4.1f);
     }
 
     void Lottery()
@@ -74,6 +77,8 @@ public class master : MonoBehaviour
 
             for (int i = 0; i < fruit_obj.Length; ++i)
                 fruit_obj[i].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+
+            UnityroomApiClient.Instance.SendScore(1, score_int, ScoreboardWriteMode.HighScoreDesc);
 
         }
         gameover = true;
