@@ -29,7 +29,7 @@ public class fruit_con : MonoBehaviour
     {
         if(can_con)
         {
-            tf.position = new Vector2(Mathf.Clamp(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, -3.4f, 3.4f), 4.1f);
+            tf.position = new Vector2(Mathf.Clamp(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, -3f, 3f), 4.1f);
         }
 
         if (Input.GetMouseButtonDown(0) && can_con == true)
@@ -62,7 +62,7 @@ public class fruit_con : MonoBehaviour
 
     void Scale_Change(int next_scale)
     {
-        float scale_float = next_scale * 0.25f + 0.25f;
+        float scale_float = next_scale * 0.2f + 0.25f;
         transform.localScale = new Vector2(scale_float,scale_float);
         spriterenderer.sprite = sprite_list[next_scale - 1];
     }

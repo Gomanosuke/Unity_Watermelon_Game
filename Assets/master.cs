@@ -43,8 +43,6 @@ public class master : MonoBehaviour
         {
             can_con = false;
             Invoke(nameof(Lottery), 0.5f);
-            next_fruit = Random.Range(1,5);
-            Next_view(next_fruit);
             number_of_fruit++;
         }
 
@@ -60,6 +58,8 @@ public class master : MonoBehaviour
         GameObject fruit = Instantiate(fruit_prefab, transform.position, transform.rotation);
         fruit_con controller = fruit.GetComponent<fruit_con>();
         controller.Create(number_of_fruit, next_fruit);
+        next_fruit = Random.Range(1, 6);
+        Next_view(next_fruit);
     }
 
     public void Gameover()
@@ -87,8 +87,10 @@ public class master : MonoBehaviour
 
     void Next_view(int next_scale)
     {
-        float scale_float = next_scale * 0.25f + 0.25f;
+        float scale_float = next_scale * 0.2f + 0.25f;
         next_fruit_obj.transform.localScale = new Vector2(scale_float, scale_float);
         next_fruit_sprite.sprite = sprite_list[next_scale - 1];
     }
+
+
 }
