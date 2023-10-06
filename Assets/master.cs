@@ -9,7 +9,7 @@ public class master : MonoBehaviour
     public GameObject fruit_prefab;
 
     public GameObject next_fruit_obj;
-    next_con next_con;
+    SpriteRenderer next_fruit_sprite;
     
     int number_of_fruit = 0;
     int next_fruit;
@@ -27,12 +27,10 @@ public class master : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        next_con = next_fruit_obj.GetComponent<next_con>();
-
+        next_fruit_sprite = next_fruit_obj.GetComponent<SpriteRenderer>();
         can_con = false;
         Invoke(nameof(Lottery), 0.5f);
         next_fruit = Random.Range(1, 5);
-        next_con.Next_look(next_fruit);
         number_of_fruit++;
     }
 
@@ -44,7 +42,7 @@ public class master : MonoBehaviour
             can_con = false;
             Invoke(nameof(Lottery), 0.5f);
             next_fruit = Random.Range(1,5);
-            next_con.Next_look(next_fruit);
+            Next_view(next_fruit);
             number_of_fruit++;
         }
 
@@ -77,5 +75,11 @@ public class master : MonoBehaviour
     {
         score_int += score;
         score_text.text = score_int.ToString("0000");
+    }
+
+    void Next_view(int next_scale)
+    {
+        float scale_float = next_scale * 0.25f + 0.25f;
+        next_fruit_obj.transform.localScale = new Vector2(scale_float, scale_float);
     }
 }
