@@ -84,14 +84,19 @@ public class master : MonoBehaviour
         gameover = true;
     }
 
-    public void Score_add(int score, int scale, Vector3 posi)
+    public void Score_add(int score, int scale, Vector3 posi,int number)
     {
         score_int += score;
         score_text.text = score_int.ToString("0000");
-        number_of_fruit++;
         GameObject fruit = Instantiate(fruit_prefab, posi, transform.rotation);
         fruit_con controller = fruit.GetComponent<fruit_con>();
-        controller.Create(number_of_fruit, scale + 1, true);
+        controller.Create(number, scale + 1, true);
+    }
+
+    public void BV(int score)
+    {
+        score_int += score;
+        score_text.text = score_int.ToString("0000");
     }
 
     void Next_view(int next_scale)

@@ -107,6 +107,7 @@ public class fruit_con : MonoBehaviour
             }else if(partner_con.scale == 12 && scale == 12)
             {
                 StartCoroutine(Bigger());
+                master.BV(scale * scale);
             }
         }
     }
@@ -116,7 +117,7 @@ public class fruit_con : MonoBehaviour
         yield return null;
         if(died)
         {
-            master.Score_add(scale * scale, scale, (partner_posi + gameObject.transform.position) / 2);
+            master.Score_add(scale * scale, scale, (partner_posi + gameObject.transform.position) / 2, number);
         }
         died = false;
         Destroy(gameObject);
