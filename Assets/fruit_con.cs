@@ -16,6 +16,8 @@ public class fruit_con : MonoBehaviour
     bool over = false;
     master master;
 
+    bool died = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,11 +55,16 @@ public class fruit_con : MonoBehaviour
         }
     }
 
-    public void Create(int number_of_fruit, int scale_of_fruit)
+    public void Create(int number_of_fruit, int scale_of_fruit, bool con = false)
     {
         number = number_of_fruit;
         scale = scale_of_fruit;
         Scale_Change(scale);
+        if(con)
+        {
+            GetComponent<Rigidbody2D>().simulated = true;
+            can_con = false;
+        }
     }
 
     void Scale_Change(int next_scale)
@@ -92,31 +99,35 @@ public class fruit_con : MonoBehaviour
             {
                 if(partner_con.number > number)
                 {
-                    StartCoroutine(destroyer());
+                    StartCoroutine(destroyer(collision.gameObject.transform.position));
                 }else
                 {
-                    StartCoroutine(Bigger(collision.gameObject.transform.position));
+                    StartCoroutine(Bigger());
                 }
             }else if(partner_con.scale == 12 && scale == 12)
             {
-                StartCoroutine(destroyer());
+                StartCoroutine(Bigger());
             }
         }
     }
 
-    IEnumerator destroyer()
+    IEnumerator destroyer(Vector3 partner_posi)
     {
         yield return null;
+        if(died)
+        {
+            master.Score_add(scale * scale, scale, (partner_posi + gameObject.transform.position) / 2);
+        }
+        died = false;
         Destroy(gameObject);
-        master.Score_add(scale * scale);
+
     }
 
-    IEnumerator Bigger(Vector3 partner_posi)
+    IEnumerator Bigger()
     {
         yield return null;
-        scale++;
-        transform.position = (partner_posi + gameObject.transform.position) / 2;
-        Scale_Change(scale);
+        died = false;
+        Destroy(gameObject);
     }
 }
 
